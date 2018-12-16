@@ -8,7 +8,9 @@ The above code is a dockerised solution composed out of 3 main services: Nginx, 
     $ docker-compose up -d
 
 An administrator account has also been made with the following credentials:
+
 **Username**: admin
+
 **Password**: b4nnKK6UqsCRJbDf
 
 It is also recommended to add the following to your `/etc/hosts` file, especially if you'll be using the test classes.
@@ -16,32 +18,53 @@ It is also recommended to add the following to your `/etc/hosts` file, especiall
     127.0.0.1 phalcon.local
 ## Endpoints
 **Authenticate a user**
+
 *Description*: Authenticates a user by accepting a username and password.
+
 *Response*: JWT Token
+
 *Authentication Header Required*: None.
+
 *Request*: `POST /auth/login`
+
 |Field|Type|
 |--|--|
 | username | String |
 | password | String |
 
+
 **Refreshing an expired token**
+
 *Description*: Refreshes an expired token within the refresh range.
+
 *Response*: JWT Token
+
 *Authentication Header Required*: `Authentication: Bearer <token>`
+
 *Request*: `GET /auth/refresh`
 
+
 **Listing the user's message history**
+
 *Description*: Lists all the message history for the current user.
+
 *Response*:  `messages` (array of messages), `requests` (number of requests made)
+
 *Authentication Header Required*: `Authentication: Bearer <token>`
+
 *Request*: `GET /api/messages/history`
 
+
 **Adding a new message**
+
 *Description*: Asynchronously adds a message to the database.
+
 *Response*:  `success` on success, `error` on error.
+
 *Authentication Header Required*: `Authentication: Bearer <token>`
+
 *Request*: `POST /api/messages/new`
+
 |Field|Type|
 |--|--|
 | message | String |
