@@ -32,7 +32,7 @@ It is also recommended to add the following to your `/etc/hosts` file, especiall
 | username | String |
 | password | String |
 
-
+---
 **Refreshing an expired token**
 
 *Description*: Refreshes an expired token within the refresh range.
@@ -43,7 +43,7 @@ It is also recommended to add the following to your `/etc/hosts` file, especiall
 
 *Request*: `GET /auth/refresh`
 
-
+---
 **Listing the user's message history**
 
 *Description*: Lists all the message history for the current user.
@@ -54,7 +54,7 @@ It is also recommended to add the following to your `/etc/hosts` file, especiall
 
 *Request*: `GET /api/messages/history`
 
-
+---
 **Adding a new message**
 
 *Description*: Asynchronously adds a message to the database.
@@ -68,7 +68,7 @@ It is also recommended to add the following to your `/etc/hosts` file, especiall
 |Field|Type|
 |--|--|
 | message | String |
-
+---
 ## PCNTL Usage
 The PHP-FPM docker image also encapsulates PCNTL which is used to achieve asynchronicity for the new message endpoint. Upon receiving a request, the function spawns a child process in parallel.
 
