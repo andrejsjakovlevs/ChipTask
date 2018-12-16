@@ -1,0 +1,35 @@
+version: '2'
+services:
+  web:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./dist:/dist
+      - ./data/host/dist.conf:/etc/nginx/conf.d/dist.conf
+      - ./data/logs:/var/log/nginx
+    links:
+      - phalcon-php
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+      - MONGODB_USER=phalcon
+      - MONGODB_PASS=M5bZe5PV3UQjdJNQ
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - "27017:27017"
+    command: mongod --smallfiles --logpath=/dev/null # --quiet
+  phalcon-php:
+    image: tomgouder/phalcon-php-fpm:latest
+    container_name: phalcon-php
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./dist:/dist
+    links:
+      - mongodb

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="RESTful API Test Suite">
+            <directory suffix=".php">./tests/</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="BASE_URI" value="http://phalcon.local/"/>
+        <env name="TEST_USER" value="TestUser"/>
+        <env name="TEST_PASS" value="badPassword123!"/>
+        <env name="JWT_SECRET" value="gZEZASr/+lYZWAmuuxYkhteCEfySMTqB+b6KTWdDUsilGrqLXNZNajU9/ylMFriGDwWqnyqqSPgZ/3yzMZAfUQ=="/>
+    </php>
+</phpunit>
