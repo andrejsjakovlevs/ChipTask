@@ -80,7 +80,7 @@ Although the above seemed to be the best option, there are other ways of achievi
  - Using HHVM / Hack
 
 ## Unit Testing
-To run PHPUnit Tests, simple enter the `dist/` directory, and execute the following:
+To run PHPUnit Tests, simply enter the `dist/` directory, and execute the following:
 
     composer test
 
